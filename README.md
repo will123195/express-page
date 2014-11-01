@@ -13,6 +13,7 @@ following properties:
 - `this.notFound()`
 - `this.params`
 - `this.redirect()`
+- `this.render()`
 - `this.setView()`
 - `this.setLayout()`
 - `this.templates`

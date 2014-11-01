@@ -13,8 +13,10 @@ var Page = module.exports = function(controller, helpers, req, res) {
   self.res = res
   self.js = []
   self.css = []
-  self.templates = []
+  self.templates = {}
   self._controller = controller
+  self._view = null
+  self._layout = null
 
   helpers = helpers || {}
   Object.keys(helpers).forEach(function(helper) {
@@ -36,6 +38,19 @@ Page.prototype.accessDenied = function() {
 
 Page.prototype.redirect = function() {
   this.res.redirect.apply(this, arguments)
+}
+
+Page.prototype.render = function() {
+  if (!this.templates[this._view]) {
+    var msg = 'No template for ' + this._view
+    throw new Error(msg)
+  }
+  var html = this.templates[this._view](this)
+  if (this._layout) {
+    this.main = html
+    html = this.templates[this._layout](this)
+  }
+  this.res.send(html)
 }
 
 Page.prototype.setLayout = function(template) {
