@@ -1,0 +1,25 @@
+{
+  "name": "express-page",
+  "version": "0.0.1",
+  "description": "Simple webpage controllers for Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/will123195/express-page.git"
+  },
+  "keywords": [
+    "express",
+    "controller",
+    "routes",
+    "mvc"
+  ],
+  "author": "will123195",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/will123195/express-page/issues"
+  },
+  "homepage": "https://github.com/will123195/express-page"
+}
