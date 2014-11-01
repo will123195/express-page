@@ -13,6 +13,7 @@ var Page = module.exports = function(controller, helpers, req, res) {
   self.res = res
   self.js = []
   self.css = []
+  self.templates = []
   self._controller = controller
 
   helpers = helpers || {}
@@ -35,4 +36,12 @@ Page.prototype.accessDenied = function() {
 
 Page.prototype.redirect = function() {
   this.res.redirect.apply(this, arguments)
+}
+
+Page.prototype.setLayout = function(template) {
+  this._layout = template
+}
+
+Page.prototype.setView = function(template) {
+  this._view = template
 }

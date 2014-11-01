@@ -5,12 +5,18 @@ Simple webpage controllers for Express.
 Provides a `page` object context for your controller with the
 following properties:
 
-- this.req
-- this.res
-- this.params
-- this.redirect()
-- this.accessDenied()
-- this.notFound()
+- `this.req`
+- `this.res`
+- `this.accessDenied()`
+- `this.css[]`
+- `this.js[]`
+- `this.notFound()`
+- `this.params`
+- `this.redirect()`
+- `this.setView()`
+- `this.setLayout()`
+- `this.templates`
+
 
 ### Install
 
@@ -34,8 +40,8 @@ var controller = function() {
 app.get('/example', function(req, res) {
   var page = page(controller, {
     db: db
-  })
-  page.run(req, res)
+  }, req, res)
+  page.run()
 })
 ```
 
@@ -53,8 +59,8 @@ scan({
   var uri = '/' + file.dir
   app.get(uri, function(req, res) {
     var controller = require(file.filename)
-    var page = page(controller)
-    page.run(req, res)
+    var page = page(controller, {}, req, res)
+    page.run()
   })
 })
 
