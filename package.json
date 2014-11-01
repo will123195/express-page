@@ -1,6 +1,6 @@
 {
   "name": "express-page",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple webpage controllers for Express.",
   "main": "index.js",
   "scripts": {
