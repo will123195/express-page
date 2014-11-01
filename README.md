@@ -2,7 +2,7 @@
 
 Simple webpage controllers for Express.
 
-Provides a `page` object context for your controller with the
+Provides a `Page` object context for your controller with the
 following properties:
 
 - `this.req`
@@ -27,7 +27,7 @@ npm install express-page
 ### Basic example
 ```js
 var express = require('express')
-var page = require('express-page')
+var Page = require('express-page')
 var app = express()
 var db = {
   count: 0
@@ -38,7 +38,7 @@ var controller = function() {
 }
 
 app.get('/example', function(req, res) {
-  var page = page(controller, {
+  var page = Page(controller, {
     db: db
   }, req, res)
   page.run()
@@ -49,7 +49,7 @@ app.get('/example', function(req, res) {
 ```js
 var express = require('express')
 var scan = require('sugar-glob')
-var page = require('express-page')
+var Page = require('express-page')
 var app = express()
 
 scan({
@@ -59,7 +59,7 @@ scan({
   var uri = '/' + file.dir
   app.get(uri, function(req, res) {
     var controller = require(file.filename)
-    var page = page(controller, {}, req, res)
+    var page = Page(controller, {}, req, res)
     page.run()
   })
 })
