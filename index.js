@@ -48,7 +48,7 @@ Page.prototype.accessDenied = function() {
 }
 
 Page.prototype.redirect = function() {
-  this.res.redirect.apply(this, arguments)
+  this.res.redirect.apply(this.res, arguments)
   return this
 }
 
